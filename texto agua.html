@@ -1,0 +1,38 @@
+<p
+  style="
+    font-size: 30px;
+    color: white;
+    font-family: Assistant, 'Source Sans Pro', _fb_;
+    line-height: 1.15;
+  "
+  id="ejemplo"
+  data-label="Puedes seleccionar los átomos y moverlos hacia el centro de la pantalla. Primero, coloca el átomo de oxígeno en el medio.Luego, lleva los átomos de hidrógeno uno a cada lado del átomo de oxígeno."
+></p>
+<script>
+  const htmlP = document.getElementById("ejemplo");
+  const txt = htmlP.dataset.label;
+  let index = 0;
+  function showLetters() {
+    let timeOut;
+    if (index < txt.length) {
+      if (index > 91 && index < 108) {
+        htmlP.innerHTML += `<span style="font-weight: bold; color: #f77955;">${txt[index]}</span>`;
+      } else if (index > 137 && index < 157) {
+        htmlP.innerHTML += `<span style="font-weight: bold; color: #7dcfdb;">${txt[index]}</span>`;
+      } else if ((index > 6 && index < 30) || (index > 31 && index < 72)) {
+        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else {
+        htmlP.innerHTML += `<span>${txt[index]}</span>`;
+      }
+      if (index == 120) {
+        htmlP.innerHTML += "<br><br>";
+      }
+      timeOut = setTimeout(showLetters, 50);
+      index++;
+    } else {
+      clearTimeout(timeOut);
+      console.log("end");
+    }
+  }
+  setTimeout(() => showLetters(), 2500);
+</script>

@@ -1,0 +1,41 @@
+<p
+  style="
+    font-size: 30px;
+    color: white;
+    font-family: Assistant, 'Source Sans Pro', _fb_;
+    line-height: 1.15;
+  "
+  id="entrada"
+  data-label="Nuestro universo comenzó con el Big Bang. Fue una gran expansión de una singularidad inmensamente densa y caliente, de allí se formó toda la materia y energía del universo.Sucedió hace muchísimo tiempo; 13.800 millones de años, más o menos.¡Todo empezó en ese instante!"
+></p>
+<script>
+  const htmlP = document.getElementById("entrada");
+  const txt = htmlP.dataset.label;
+  let index = 0;
+  function showLetters() {
+    let timeOut;
+    if (index < txt.length) {
+      if (index > 31 && index < 40) {
+        htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
+      } else if (
+        (index > 49 && index < 65) ||
+        (index > 115 && index < 171) ||
+        (index > 202 && index < 226) ||
+        index > 239
+      ) {
+        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else {
+        htmlP.innerHTML += `<span>${txt[index]}</span>`;
+      }
+      if (index == 171 || index == 239) {
+        htmlP.innerHTML += "<br><br>";
+      }
+      timeOut = setTimeout(showLetters, 50);
+      index++;
+    } else {
+      clearTimeout(timeOut);
+      console.log("end");
+    }
+  }
+  setTimeout(() => showLetters(), 3000);
+</script>

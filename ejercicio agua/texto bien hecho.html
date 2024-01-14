@@ -2,11 +2,11 @@
   style="
     font-size: 30px;
     color: white;
-    font-family: Assistant, 'Source Sans Pro', _fb_;
+    font-family: Montserrat, 'Source Sans Pro', _fb_;
     line-height: 1.15;
   "
   id="ejemplo"
-  data-label="Puedes seleccionar los átomos y moverlos hacia el centro de la pantalla. Primero, coloca el átomo de oxígeno en el medio.Luego, lleva los átomos de hidrógeno uno a cada lado del átomo de oxígeno."
+  data-label="¡Bien hecho!Has formado una molécula de agua. ¡Es asombroso cómo estos átomos se unen para crear algo tan esencial para la vida!"
 ></p>
 <script>
   const htmlP = document.getElementById("ejemplo");
@@ -15,24 +15,24 @@
   function showLetters() {
     let timeOut;
     if (index < txt.length) {
-      if (index > 91 && index < 108) {
-        htmlP.innerHTML += `<span style="font-weight: bold; color: #f77955;">${txt[index]}</span>`;
-      } else if (index > 137 && index < 157) {
+      if (index < 12) {
+        htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold; color: #F9B611;">${txt[index]}</span>`;
+      } else if (index > 27 && index < 45) {
         htmlP.innerHTML += `<span style="font-weight: bold; color: #7dcfdb;">${txt[index]}</span>`;
-      } else if ((index > 6 && index < 30) || (index > 31 && index < 72)) {
+      } else if (index > 105 && index < 128) {
         htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 120) {
+      if (index == 11) {
         htmlP.innerHTML += "<br><br>";
       }
-      timeOut = setTimeout(showLetters, 50);
+      timeOut = setTimeout(showLetters, 30);
       index++;
     } else {
       clearTimeout(timeOut);
       console.log("end");
     }
   }
-  setTimeout(() => showLetters(), 2500);
+  showLetters();
 </script>

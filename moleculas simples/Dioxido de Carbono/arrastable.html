@@ -1,0 +1,130 @@
+<div id="icono_error"></div>
+<script></script>
+<div id="mensaje_error"></div>
+<script></script>
+<div id="quinto_objeto"></div>
+<script></script>
+<div id="primer_encaje"></div>
+<script></script>
+<style>
+  @keyframes fade_in_left {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+<script>
+  if (
+    document.getElementsByClassName("container-wrapper-genially").length != 0
+  ) {
+    var mensaje_error = document.getElementById("mensaje_error");
+    mensaje_error.closest(".genially-animated-wrapper").style.display = "none";
+  }
+  var array_objetos = [
+    ["primer_objeto", [0, 1]],
+    ["segundo_objeto", [0, 1]],
+    ["tercer_objeto", [2]],
+  ];
+  var array_encaje = [
+    ["primer_encaje", []],
+    ["segundo_encaje", []],
+    ["tercer_encaje", []],
+  ];
+  array_objetos.forEach((objeto, i_objeto) => {
+    let objeto_elemento = document.getElementById(objeto[0]);
+    objeto_elemento.parentNode.addEventListener("touchend", function (event) {
+      array_encaje.forEach((encaje, i_encaje) => {
+        let encaje_elemento = document.getElementById(encaje[0]);
+        let lm = this.getBoundingClientRect().left + 10;
+        let tm = this.getBoundingClientRect().top + 10;
+        let rm = this.getBoundingClientRect().right - 10;
+        let bm = this.getBoundingClientRect().bottom - 10;
+        let le = encaje_elemento.parentNode.getBoundingClientRect().left + 10;
+        let te = encaje_elemento.parentNode.getBoundingClientRect().top + 10;
+        let re = encaje_elemento.parentNode.getBoundingClientRect().right - 10;
+        let be = encaje_elemento.parentNode.getBoundingClientRect().bottom - 10;
+        if (
+          (lm > le && lm < re && tm > te && tm < be) ||
+          (rm > le && rm < re && tm > te && tm < be) ||
+          (lm > le && lm < re && bm > te && bm < be) ||
+          (rm > le && rm < re && bm > te && bm < be)
+        ) {
+          this.closest(".drag-available").setAttribute(
+            "waterloo-x",
+            encaje_elemento.closest(".genially-animated-wrapper").style.left
+          );
+          this.closest(".drag-available").style.left = encaje_elemento.closest(
+            ".genially-animated-wrapper"
+          ).style.left;
+          this.closest(".drag-available").setAttribute(
+            "waterloo-y",
+            encaje_elemento.closest(".genially-animated-wrapper").style.top
+          );
+          this.closest(".drag-available").style.top = encaje_elemento.closest(
+            ".genially-animated-wrapper"
+          ).style.top;
+          if (encaje[1].filter((i_o) => i_o == i_objeto).length == 0) {
+            array_encaje[i_encaje][1].push(i_objeto);
+          }
+        } else {
+          if (encaje[1].filter((i_o) => i_o == i_objeto).length > 0) {
+            array_encaje[i_encaje][1].splice(encaje[1].indexOf(i_objeto), 1);
+          }
+        }
+      });
+      revisar(array_encaje, array_objetos);
+    });
+  });
+  function revisar(array_encaje, array_objetos) {
+    var mensaje_error = document.getElementById("mensaje_error");
+    mensaje_error.closest(".genially-animated-wrapper").style.display = "none";
+    mensaje_error
+      .closest(".genially-animated-wrapper")
+      .style.removeProperty("animation");
+
+    var incorrecto = false;
+    array_encaje.forEach((encaje, i_encaje) => {
+      let encaje_elemento = document.getElementById(encaje[0]);
+      encaje_elemento
+        .closest(".genially-view-group")
+        .querySelector(".sc-fmBCVi").style.overflow = "hidden";
+      encaje_elemento
+        .closest(".genially-view-group")
+        .querySelector("img")
+        .style.removeProperty("filter");
+      if (!array_encaje.filter((encaje) => encaje[1].length == 0).length > 0) {
+        if (
+          array_objetos[encaje[1]][1].filter((encaje_o) => encaje_o == i_encaje)
+            .length == 0
+        ) {
+          encaje_elemento
+            .closest(".genially-view-group")
+            .querySelector(".sc-fmBCVi").style.overflow = "visible";
+          encaje_elemento
+            .closest(".genially-view-group")
+            .querySelector("img").style.filter =
+            "drop-shadow(0 0 0.75rem #f77955)";
+
+          mensaje_error
+            .closest(".genially-animated-wrapper")
+            .style.removeProperty("display");
+          mensaje_error.closest(".genially-animated-wrapper").style.animation =
+            "fade_in_left 0.5s linear";
+
+          incorrecto = true;
+        }
+      }
+    });
+    if (
+      !incorrecto &&
+      !array_encaje.filter((encaje) => encaje[1].length == 0).length > 0
+    ) {
+      document.getElementsByClassName("genially-view-arrow-right")[0].click();
+    }
+  }
+</script>

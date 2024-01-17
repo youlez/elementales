@@ -1,0 +1,39 @@
+<p
+  style="
+    font-size: 30px;
+    color: #1e3189;
+    text-align: center;
+    font-family: Montserrat, 'Source Sans Pro', _fb_;
+    line-height: 1.15;
+  "
+  id="ejemplo"
+  data-label="Ácido Fosfórico (H3PO4)El ácido fosfórico es un compuesto químico que juega un papel clave en la generación de energía en las células. Además, es un componente fundamental en la formación de moléculas importantes como el ADN y el ARN. Para más información, te invitamos a jugar La complejidad de la vida.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+></p>
+<script>
+  const htmlP = document.getElementById("ejemplo");
+  const txt = htmlP.dataset.label;
+  let index = 0;
+  function showLetters() {
+    let timeOut;
+    if (index < txt.length) {
+      if (index == 18 || index == 21) {
+        htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
+      } else if (index < 23) {
+        htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
+      } else if (index > 303 && index < 394) {
+        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else {
+        htmlP.innerHTML += `<span>${txt[index]}</span>`;
+      }
+      if (index == 22 || index == 303) {
+        htmlP.innerHTML += "<br><br>";
+      }
+      timeOut = setTimeout(showLetters, 30);
+      index++;
+    } else {
+      clearTimeout(timeOut);
+      console.log("end");
+    }
+  }
+  showLetters();
+</script>

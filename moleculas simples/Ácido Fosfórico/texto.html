@@ -7,7 +7,7 @@
     line-height: 1.15;
   "
   id="ejemplo"
-  data-label="Ácido Fosfórico (H3PO4)El ácido fosfórico es un compuesto químico que juega un papel clave en la generación de energía en las células. Además, es un componente fundamental en la formación de moléculas importantes como el ADN y el ARN. Para más información, te invitamos a jugar La complejidad de la vida.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+  data-label="Ácido Fosfórico (H3PO4)El ácido fosfórico es un compuesto químico que juega un papel clave en la generación de energía en las células. Además, es un componente fundamental en la formación de moléculas importantes como el ADN y el ARN. Para más información, te invitamos a jugar CELULAB: CONSTRUYENDO VIDA.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
 ></p>
 <script>
   const htmlP = document.getElementById("ejemplo");
@@ -20,12 +20,18 @@
         htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
       } else if (index < 23) {
         htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
-      } else if (index > 303 && index < 394) {
-        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else if (index == 278) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189; padding-left: 20px; border-radius: 30px 0 0 30px;">${txt[index]}</span>`;
+      } else if (index > 277 && index < 304) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189;">${txt[index]}</span>`;
+      } else if (index == 304) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189; padding-right: 20px; border-radius: 0 30px 30px 0;">${txt[index]}</span>`;
+      } else if (index > 304 && index < 394) {
+        htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 22 || index == 303) {
+      if (index == 22 || index == 304) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);

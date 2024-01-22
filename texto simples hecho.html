@@ -2,30 +2,27 @@
   style="
     font-size: 30px;
     color: #1e3189;
-    text-align: center;
     font-family: Montserrat, 'Source Sans Pro', _fb_;
     line-height: 1.15;
   "
-  id="ejemplo"
-  data-label="Ozono (O3)Se encuentra en la atmósfera superior y es crucial para proteger la Tierra de la radiación ultravioleta dañina del Sol.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+  id="entrada"
+  data-label="¡Increíble trabajo!Armaste con maestría las moléculas; con cada una has sembrado las semillas de la vida.¡Sigue explorando y construyendo! Juntos, estamos aprendiendo sobre el tejido vital de nuestro universo."
 ></p>
 <script>
-  const htmlP = document.getElementById("ejemplo");
+  const htmlP = document.getElementById("entrada");
   const txt = htmlP.dataset.label;
   let index = 0;
   function showLetters() {
     let timeOut;
     if (index < txt.length) {
-      if (index == 8) {
-        htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
-      } else if (index < 10) {
+      if (index < 19) {
         htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
-      } else if (index > 128 && index < 220) {
+      } else if (index > 104 && index < 209) {
         htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 9 || index == 128) {
+      if (index == 18 || index == 104) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);
@@ -35,5 +32,5 @@
       console.log("end");
     }
   }
-  showLetters();
+  setTimeout(() => showLetters(), 2700);
 </script>

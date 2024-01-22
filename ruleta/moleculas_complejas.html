@@ -1,0 +1,75 @@
+<div class="wraper">
+  <div class="window">
+    <div class="lista"></div>
+  </div>
+</div>
+<style>
+  .window {
+    position: relative;
+  }
+  .divs {
+    margin-top: 15px !important;
+    position: initial !important;
+  }
+</style>
+<script>
+  if (
+    document.getElementsByClassName("container-wrapper-genially").length != 0
+  ) {
+    var btn_1 = document
+      .querySelector('[data-title="glucosa"]')
+      .closest(".genially-animated-wrapper");
+    var btn_2 = document
+      .querySelector('[data-title="celobiosa"]')
+      .closest(".genially-animated-wrapper");
+    var btn_3 = document
+      .querySelector('[data-title="lisina"]')
+      .closest(".genially-animated-wrapper");
+    var btn_4 = document
+      .querySelector('[data-title="alanina"]')
+      .closest(".genially-animated-wrapper");
+    var btn_5 = document
+      .querySelector('[data-title="adenina"]')
+      .closest(".genially-animated-wrapper");
+    var btn_6 = document
+      .querySelector('[data-title="uracilo"]')
+      .closest(".genially-animated-wrapper");
+    btn_1.classList.add("divs");
+    btn_2.classList.add("divs");
+    btn_3.classList.add("divs");
+    btn_4.classList.add("divs");
+    btn_5.classList.add("divs");
+    btn_6.classList.add("divs");
+    document.querySelector(".lista").appendChild(btn_1.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_2.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_3.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_4.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_5.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_6.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_1.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_2.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_3.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_4.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_5.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_6.cloneNode(true));
+    document.querySelector(".lista").appendChild(btn_1);
+    document.querySelector(".lista").appendChild(btn_2);
+    document.querySelector(".lista").appendChild(btn_3);
+    document.querySelector(".lista").appendChild(btn_4);
+    document.querySelector(".lista").appendChild(btn_5);
+    document.querySelector(".lista").appendChild(btn_6);
+    setTimeout(() => agregarAnimacion(), 1500);
+  }
+
+  function agregarAnimacion() {
+    document.querySelector(".window").animate([{ bottom: "0px" }], {
+      duration: 0.1,
+      fill: "forwards",
+    });
+    var x = Math.floor(Math.random() * (17 - 12 + 1) + 12);
+    document.querySelector(".window").animate([{ bottom: x * 175 + "px" }], {
+      duration: 1000,
+      fill: "forwards",
+    });
+  }
+</script>

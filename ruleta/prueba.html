@@ -1,0 +1,97 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function () {
+    var lista = document.querySelectorAll(".lista a");
+    lista.forEach((element) => {
+      document.querySelector(".lista").appendChild(element.cloneNode(true));
+    });
+    lista.forEach((element) => {
+      document.querySelector(".lista").appendChild(element.cloneNode(true));
+    });
+    var x = Math.floor(Math.random() * (17 - 11 + 1) + 11);
+    document.querySelector(".window").animate([{ bottom: x * 130 + "px" }], {
+      duration: 1000,
+      fill: "forwards",
+    });
+  });
+</script>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    list-style: none;
+    display: inline-block;
+    float: left;
+    height: 130px;
+  }
+
+  .window {
+    overflow: hidden;
+    position: relative;
+    width: 130px;
+    height: 25000px;
+    bottom: 0px;
+  }
+
+  .wraper {
+    position: relative;
+    margin-top: 0px;
+    width: 130px;
+    height: 130px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .lista {
+    position: relative;
+    display: inline-block;
+  }
+  .lista a img {
+    width: 130px;
+    height: 130px;
+  }
+</style>
+<div class="wraper">
+  <div class="window">
+    <div class="lista">
+      <a href="#">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/fruits/128/Strawberry.png"
+          alt=""
+        />
+      </a>
+      <a href="#">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/fruits/128/Cherry.png"
+          alt=""
+        />
+      </a>
+      <a href="#">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/fruits/128/Apple.png"
+          alt=""
+        />
+      </a>
+      <a href="#">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/fruits/128/Lemon.png"
+          alt=""
+        />
+      </a>
+      <a href="#">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/fruits/128/Kiwi.png"
+          alt=""
+        />
+      </a>
+      <a href="#">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/fruits/128/Pear.png"
+          alt=""
+        />
+      </a>
+    </div>
+  </div>
+</div>

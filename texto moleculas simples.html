@@ -4,9 +4,10 @@
     color: white;
     font-family: Montserrat, 'Source Sans Pro', _fb_;
     line-height: 1.15;
+    text-align: center;
   "
   id="entrada"
-  data-label="Así es como desde el Big Bang - la gran expansión - se formaron los átomos que constituyen nuestro universo observable.Ahora, ¡tu tarea es aprender a construir moléculas!Es una importante misión: al ensamblar los bloques fundamentales de la vida, contribuyes a mantener la armonía y la vitalidad de nuestro preciado cosmos."
+  data-label="Bienvenido al panel de selección de moléculas, estudiante del futuroAquí puedes elegir cuáles moléculas deseas construir.Selecciona una molécula para comenzar tu desafío."
 ></p>
 <script>
   const htmlP = document.getElementById("entrada");
@@ -15,20 +16,14 @@
   function showLetters() {
     let timeOut;
     if (index < txt.length) {
-      if (index > 20 && index < 29) {
+      if (index < 68) {
         htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
-      } else if (
-        (index > 63 && index < 74) ||
-        (index > 118 && index < 170) ||
-        (index > 176 && index < 195) ||
-        (index > 198 && index < 208) ||
-        (index > 272 && index < 295)
-      ) {
+      } else if (index > 120 && index < 144) {
         htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 118 || index == 169) {
+      if (index == 67 || index == 120) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);

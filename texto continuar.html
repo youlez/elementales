@@ -5,26 +5,24 @@
     font-family: Montserrat, 'Source Sans Pro', _fb_;
     line-height: 1.15;
   "
-  id="ejemplo"
-  data-label="Puedes arrastrar los átomos y moverlos hacia el centro de la pantalla. Primero, coloca el átomo de oxígeno en el medio.Luego, lleva los átomos de hidrógeno uno a cada lado del átomo de oxígeno."
+  id="entrada"
+  data-label="Hoy, tu desafío es construir una molécula de agua.¿Estás listo para poner a prueba tus habilidades moleculares?"
 ></p>
 <script>
-  const htmlP = document.getElementById("ejemplo");
+  const htmlP = document.getElementById("entrada");
   const txt = htmlP.dataset.label;
   let index = 0;
   function showLetters() {
     let timeOut;
     if (index < txt.length) {
-      if (index > 89 && index < 106) {
-        htmlP.innerHTML += `<span style="font-weight: bold; color: #f77955;">${txt[index]}</span>`;
-      } else if (index > 135 && index < 155) {
+      if (index > 32 && index < 41) {
         htmlP.innerHTML += `<span style="font-weight: bold; color: #7dcfdb;">${txt[index]}</span>`;
-      } else if ((index > 6 && index < 27) || (index > 29 && index < 70)) {
-        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else if (index > 49 && index < 111) {
+        htmlP.innerHTML += `<span style="font-weight: bold; color: #F9B611;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 118 || index == 70) {
+      if (index == 49) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);

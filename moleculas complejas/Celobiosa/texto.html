@@ -1,0 +1,54 @@
+<p
+  style="
+    font-size: 30px;
+    color: #1e3189;
+    text-align: center;
+    font-family: Montserrat, 'Source Sans Pro', _fb_;
+    line-height: 1.15;
+  "
+  id="ejemplo"
+  data-label="Celobiosa (C12H22O11)Un disacárido que se descompone en glucosa, posiblemente procesado en el retículo endoplasmático para su posterior utilización en la mitocondria. Para ampliar la información, te invitamos a jugar CELULAB: CONSTRUYENDO VIDA.¡Sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+></p>
+<script>
+  const htmlP = document.getElementById("ejemplo");
+  const txt = htmlP.dataset.label;
+  let index = 0;
+  function showLetters() {
+    let timeOut;
+    if (index < txt.length) {
+      if (
+        index == 12 ||
+        index == 13 ||
+        index == 15 ||
+        index == 16 ||
+        index == 18 ||
+        index == 19
+      ) {
+        htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
+      } else if (index < 21) {
+        htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
+      } else if (index > 171 && index < 195) {
+        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else if (index == 217) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189; padding-left: 20px; border-radius: 30px 0 0 30px;">${txt[index]}</span>`;
+      } else if (index > 217 && index < 243) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189;">${txt[index]}</span>`;
+      } else if (index == 243) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189; padding-right: 20px; border-radius: 0 30px 30px 0;">${txt[index]}</span>`;
+      } else if (index > 243 && index < 322) {
+        htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
+      } else {
+        htmlP.innerHTML += `<span>${txt[index]}</span>`;
+      }
+      if (index == 20 || index == 243) {
+        htmlP.innerHTML += "<br><br>";
+      }
+      timeOut = setTimeout(showLetters, 30);
+      index++;
+    } else {
+      clearTimeout(timeOut);
+      console.log("end");
+    }
+  }
+  showLetters();
+</script>

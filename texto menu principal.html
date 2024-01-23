@@ -1,0 +1,37 @@
+<p
+  style="
+    font-size: 30px;
+    color: black;
+    font-family: Montserrat, 'Source Sans Pro', _fb_;
+    line-height: 1.15;
+    text-align: center;
+  "
+  id="ejemplo"
+  data-label="¡Es hora de comenzar tu próxima tarea!Aquí puedes elegir entre tres desafíos diferentes.Selecciona el que más te guste."
+></p>
+<script>
+  const htmlP = document.getElementById("ejemplo");
+  const txt = htmlP.dataset.label;
+  let index = 0;
+  function showLetters() {
+    let timeOut;
+    if (index < txt.length) {
+      if (index < 38) {
+        htmlP.innerHTML += `<span style="font-weight: bold; color: #F9B611; font-style: italic;">${txt[index]}</span>`;
+      } else if ((index > 62 && index < 76) || (index > 87 && index < 98)) {
+        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else {
+        htmlP.innerHTML += `<span>${txt[index]}</span>`;
+      }
+      if (index == 37 || index == 87) {
+        htmlP.innerHTML += "<br><br>";
+      }
+      timeOut = setTimeout(showLetters, 30);
+      index++;
+    } else {
+      clearTimeout(timeOut);
+      console.log("end");
+    }
+  }
+  showLetters();
+</script>

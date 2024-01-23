@@ -1,0 +1,47 @@
+<p
+  style="
+    font-size: 30px;
+    color: #1e3189;
+    text-align: center;
+    font-family: Montserrat, 'Source Sans Pro', _fb_;
+    line-height: 1.15;
+  "
+  id="ejemplo"
+  data-label="Uracilo(C4H4N2O2)Otra base nitrogenada, pero presente principalmente en el ARN. También participa en la síntesis proteica y la expresión génica. Para ampliar la información, te invitamos a jugar CELULAB: CONSTRUYENDO VIDA.¡Sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+></p>
+<script>
+  const htmlP = document.getElementById("ejemplo");
+  const txt = htmlP.dataset.label;
+  let index = 0;
+  function showLetters() {
+    let timeOut;
+    if (index < txt.length) {
+      if (index == 9 || index == 11 || index == 13 || index == 15) {
+        htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
+      } else if (index < 17) {
+        htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
+      } else if (index > 149 && index < 173) {
+        htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
+      } else if (index == 195) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189; padding-left: 20px; border-radius: 30px 0 0 30px;">${txt[index]}</span>`;
+      } else if (index > 195 && index < 221) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189;">${txt[index]}</span>`;
+      } else if (index == 221) {
+        htmlP.innerHTML += `<span style="color:white; font-weight: bold; font-style: italic; background-color: #1e3189; padding-right: 20px; border-radius: 0 30px 30px 0;">${txt[index]}</span>`;
+      } else if (index > 221 && index < 299) {
+        htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
+      } else {
+        htmlP.innerHTML += `<span>${txt[index]}</span>`;
+      }
+      if (index == 16 || index == 221) {
+        htmlP.innerHTML += "<br><br>";
+      }
+      timeOut = setTimeout(showLetters, 30);
+      index++;
+    } else {
+      clearTimeout(timeOut);
+      console.log("end");
+    }
+  }
+  showLetters();
+</script>

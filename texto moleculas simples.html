@@ -1,13 +1,13 @@
 <p
   style="
-    font-size: 30px;
+    font-size: 26px;
     color: white;
     font-family: Montserrat, 'Source Sans Pro', _fb_;
     line-height: 1.15;
     text-align: center;
   "
   id="entrada"
-  data-label="Bienvenido al panel de selección de moléculas, estudiante del futuroAquí puedes elegir cuáles moléculas deseas construir.Selecciona una molécula para comenzar tu desafío."
+  data-label="¡Prepárate para una desafiante tarea de construcción!En este desafío, deberás construir moléculas simples seleccionadas aleatoriamente de nuestro banco de opciones."
 ></p>
 <script>
   const htmlP = document.getElementById("entrada");
@@ -16,14 +16,14 @@
   function showLetters() {
     let timeOut;
     if (index < txt.length) {
-      if (index < 68) {
+      if (index < 53) {
         htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
-      } else if (index > 120 && index < 144) {
+      } else if (index > 87 && index < 106) {
         htmlP.innerHTML += `<span style="font-weight: bold;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 67 || index == 120) {
+      if (index == 52) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);

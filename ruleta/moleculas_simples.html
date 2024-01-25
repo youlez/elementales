@@ -16,6 +16,30 @@
   if (
     document.getElementsByClassName("container-wrapper-genially").length != 0
   ) {
+    document.querySelector('[data-title="bien"]').style.display = "none";
+    try {
+      if (cant_simples >= 1) {
+        delete document.querySelector('[data-title="bien"]').style.display;
+      }
+    } catch {
+      console.log("simples no existe");
+    }
+    try {
+      if (cant_simples >= 2) {
+        document.querySelector('[data-title="simples"]').style.display = "none";
+      }
+    } catch {
+      console.log("simples no existe");
+    }
+    try {
+      if (cant_complejas >= 2) {
+        document.querySelector('[data-title="complejas"]').style.display =
+          "none";
+      }
+    } catch {
+      console.log("complejas no existe");
+    }
+
     var btn_1 = document
       .querySelector('[data-title="metano"]')
       .closest(".genially-animated-wrapper");
@@ -58,7 +82,13 @@
     document.querySelector(".lista").appendChild(btn_4);
     document.querySelector(".lista").appendChild(btn_5);
     document.querySelector(".lista").appendChild(btn_6);
-    setTimeout(() => agregarAnimacion(), 1500);
+    setTimeout(() => agregarAnimacion(), 2000);
+
+    document
+      .querySelector('[data-title="revolver"]')
+      .addEventListener("touchstart", function (event) {
+        agregarAnimacion();
+      });
   }
 
   function agregarAnimacion() {

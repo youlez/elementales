@@ -7,7 +7,7 @@
     line-height: 1.15;
   "
   id="ejemplo"
-  data-label="Cisteína (C3H7NO2S)La cisteína es como una pieza clave que ayuda a construir proteínas importantes para el cuerpo. Ayuda a mantener sano el cabello, la piel y las uñas, y también trabaja como una especie de protector en el cuerpo.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+  data-label="Cisteína (C3H7NO2S)La cisteína es una pieza clave que ayuda a construir proteínas importantes para el cuerpo. Ayuda a mantener sano el cabello, la piel y las uñas, también trabaja como una especie de protector en el cuerpo.¡Sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
 ></p>
 <script>
   const htmlP = document.getElementById("ejemplo");
@@ -20,12 +20,12 @@
         htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
       } else if (index < 19) {
         htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
-      } else if (index > 229 && index < 320) {
+      } else if (index > 222 && index < 301) {
         htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 18 || index == 229) {
+      if (index == 18 || index == 222) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);

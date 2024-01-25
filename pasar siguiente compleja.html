@@ -1,0 +1,20 @@
+<style>
+  #ejemplo {
+    font-size: 25px !important;
+  }
+</style>
+<script>
+  if (
+    document.getElementsByClassName("container-wrapper-genially").length != 0
+  ) {
+    try {
+      cant_complejas++;
+      if (cant_complejas == 2) {
+        document.querySelector('[data-title="siguiente"]').style.display =
+          "none";
+      }
+    } catch {
+      console.log("complejas no existe");
+    }
+  }
+</script>

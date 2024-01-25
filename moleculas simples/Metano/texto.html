@@ -7,7 +7,7 @@
     line-height: 1.15;
   "
   id="ejemplo"
-  data-label="Metano (CH4)Es el gas principal en el gas natural y se forma en procesos biológicos, como la descomposición de materia orgánica en condiciones sin oxígeno, como en pantanos, vertederos y el sistema digestivo de animales.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+  data-label="Metano (CH4)Es el gas principal en el gas natural, se forma en procesos biológicos, como la descomposición de materia orgánica en condiciones sin oxígeno como pantanos, vertederos y el sistema digestivo de animales.¡Sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
 ></p>
 <script>
   const htmlP = document.getElementById("ejemplo");
@@ -20,12 +20,12 @@
         htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
       } else if (index < 12) {
         htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
-      } else if (index > 219 && index < 310) {
+      } else if (index > 214 && index < 323) {
         htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 11 || index == 219) {
+      if (index == 11 || index == 214) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);

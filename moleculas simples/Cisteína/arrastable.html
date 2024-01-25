@@ -104,6 +104,12 @@
           array_objetos[encaje[1]][1].filter((encaje_o) => encaje_o == i_encaje)
             .length == 0
         ) {
+          document
+            .getElementById("audio_mal")
+            .closest(".genially-view-group")
+            .querySelector(".widget-audio-player-play-container")
+            .click();
+
           encaje_elemento
             .closest(".genially-view-group")
             .querySelector(".sc-fmBCVi").style.overflow = "visible";

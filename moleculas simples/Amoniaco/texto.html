@@ -7,7 +7,7 @@
     line-height: 1.15;
   "
   id="ejemplo"
-  data-label="Amoniaco (NH3)Es un compuesto químico incoloro y tiene un olor característico y penetrante. Se utiliza ampliamente en la industria química y agrícola, así como en productos de limpieza y fertilizantes debido a su alto contenido de nitrógeno.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
+  data-label="Amoniaco (NH3)Es un compuesto químico incoloro y con un olor característico y penetrante. Se utiliza ampliamente en la industria química y agrícola, así como en productos de limpieza y fertilizantes debido a su alto contenido de nitrógeno.¡Sigue así y sigue explorando el fascinante mundo de las moléculas en tu viaje científico!"
 ></p>
 <script>
   const htmlP = document.getElementById("ejemplo");
@@ -20,12 +20,12 @@
         htmlP.innerHTML += `<span style="font-size: 30px; font-weight: bold; vertical-align: sub;">${txt[index]}</span>`;
       } else if (index < 14) {
         htmlP.innerHTML += `<span style="font-size: 40px; font-weight: bold;">${txt[index]}</span>`;
-      } else if (index > 240 && index < 331) {
+      } else if (index > 238 && index < 329) {
         htmlP.innerHTML += `<span style="font-weight: bold; font-style: italic;">${txt[index]}</span>`;
       } else {
         htmlP.innerHTML += `<span>${txt[index]}</span>`;
       }
-      if (index == 13 || index == 240) {
+      if (index == 13 || index == 238) {
         htmlP.innerHTML += "<br><br>";
       }
       timeOut = setTimeout(showLetters, 30);

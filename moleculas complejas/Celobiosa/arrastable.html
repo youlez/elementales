@@ -30,16 +30,20 @@
     mensaje_error.closest(".genially-animated-wrapper").style.display = "none";
   }
   var array_objetos = [
-    ["primer_objeto", [0, 1]],
-    ["segundo_objeto", [0, 1]],
-    ["tercer_objeto", [2, 3]],
-    ["cuarto_objeto", [2, 3]],
+    ["primer_objeto", [0, 1, 2]],
+    ["segundo_objeto", [0, 1, 2]],
+    ["tercer_objeto", [0, 1, 2]],
+    ["cuarto_objeto", [3, 4, 5]],
+    ["quinto_objeto", [3, 4, 5]],
+    ["sexto_objeto", [3, 4, 5]],
   ];
   var array_encaje = [
     ["primer_encaje", []],
     ["segundo_encaje", []],
     ["tercer_encaje", []],
     ["cuarto_encaje", []],
+    ["quinto_encaje", []],
+    ["sexto_encaje", []],
   ];
   array_objetos.forEach((objeto, i_objeto) => {
     let objeto_elemento = document.getElementById(objeto[0]);
@@ -108,6 +112,12 @@
           array_objetos[encaje[1]][1].filter((encaje_o) => encaje_o == i_encaje)
             .length == 0
         ) {
+          document
+            .getElementById("audio_mal")
+            .closest(".genially-view-group")
+            .querySelector(".widget-audio-player-play-container")
+            .click();
+
           encaje_elemento
             .closest(".genially-view-group")
             .querySelector(".sc-fmBCVi").style.overflow = "visible";

@@ -19,7 +19,9 @@
     document.querySelector('[data-title="bien"]').style.display = "none";
     try {
       if (cant_complejas >= 1) {
-        delete document.querySelector('[data-title="bien"]').style.display;
+        document
+          .querySelector('[data-title="bien"]')
+          .style.removeProperty("display");
       }
     } catch {
       console.log("complejas no existe");

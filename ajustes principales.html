@@ -1,8 +1,37 @@
 <style>
   .genially-view-navigation-actions-container,
+  .genially-view-menu-action,
   .sc-iwjdpV,
-  .sc-fKVqWL {
+  .sc-fKVqWL,
+  .tpd-tooltip {
     opacity: 0;
     z-index: -1 !important;
   }
 </style>
+<script>
+  var cant_simples = 0;
+  var cant_complejas = 0;
+
+  const inactivityTimeout = 30000; // 1minuto
+
+  let inactivityTimer;
+
+  // Reset the inactivity timer whenever there's user activity
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(reloadPage, inactivityTimeout);
+  }
+
+  // Reload the page
+  function reloadPage() {
+    location.reload();
+  }
+
+  // Attach event listeners for user activity
+  document.addEventListener("mousemove", resetInactivityTimer);
+  document.addEventListener("touchmove", resetInactivityTimer);
+  document.addEventListener("keydown", resetInactivityTimer);
+
+  // Initialize the inactivity timer
+  resetInactivityTimer();
+</script>

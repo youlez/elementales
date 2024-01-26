@@ -1,14 +1,7 @@
 <script>
   if (
-    document.querySelector(
-      '[d="M10,0h6V6a1,1,0,0,1-2,0V3.41L10.91,6.5A1,1,0,0,1,9.5,5.09L12.59,2H10a1,1,0,0,1,0-2ZM6,14a1,1,0,0,1,0,2H0V10a1,1,0,0,1,2,0v2.59L5.09,9.5A1,1,0,0,1,6.5,10.91L3.41,14Z"]'
-    )
+    document.getElementsByClassName("container-wrapper-genially").length != 0
   ) {
-    document
-      .querySelector(
-        '[d="M10,0h6V6a1,1,0,0,1-2,0V3.41L10.91,6.5A1,1,0,0,1,9.5,5.09L12.59,2H10a1,1,0,0,1,0-2ZM6,14a1,1,0,0,1,0,2H0V10a1,1,0,0,1,2,0v2.59L5.09,9.5A1,1,0,0,1,6.5,10.91L3.41,14Z"]'
-      )
-      .closest(".genially-view-icon")
-      .click();
+    document.documentElement.requestFullscreen();
   }
 </script>

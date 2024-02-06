@@ -134,7 +134,10 @@
       !incorrecto &&
       !array_encaje.filter((encaje) => encaje[1].length == 0).length > 0
     ) {
-      document.getElementsByClassName("genially-view-arrow-right")[0].click();
+      setTimeout(
+        () => document.querySelector('[data-title="siguiente"]').click(),
+        100
+      );
     }
   }
 </script>

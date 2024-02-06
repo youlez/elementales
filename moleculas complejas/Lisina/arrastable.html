@@ -2,7 +2,7 @@
 <script></script>
 <div id="mensaje_error"></div>
 <script></script>
-<div id="cuarto_objeto"></div>
+<div id="primer_objeto"></div>
 <script></script>
 <div id="quinto_objeto"></div>
 <script></script>
@@ -45,6 +45,7 @@
     let objeto_elemento = document.getElementById(objeto[0]);
     objeto_elemento.parentNode.addEventListener("touchend", function (event) {
       array_encaje.forEach((encaje, i_encaje) => {
+        console.log("aqui");
         let encaje_elemento = document.getElementById(encaje[0]);
         let lm = this.getBoundingClientRect().left + 10;
         let tm = this.getBoundingClientRect().top + 10;
@@ -136,7 +137,10 @@
       !incorrecto &&
       !array_encaje.filter((encaje) => encaje[1].length == 0).length > 0
     ) {
-      document.getElementsByClassName("genially-view-arrow-right")[0].click();
+      setTimeout(
+        () => document.querySelector('[data-title="siguiente"]').click(),
+        100
+      );
     }
   }
 </script>

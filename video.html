@@ -1,0 +1,28 @@
+<video id="video" src="video/inicio.mp4" autoplay></video>
+<script>
+  if (
+    document.getElementsByClassName("container-wrapper-genially").length != 0
+  ) {
+    document
+      .querySelector('[data-title="pause"]')
+      .addEventListener("touchstart", function (event) {
+        document.querySelector("#video").pause();
+        document.querySelector('[data-title="pause"]').style.display = "none";
+      });
+    document
+      .querySelector('[data-title="play"]')
+      .addEventListener("touchstart", function (event) {
+        document.querySelector("#video").play();
+        document
+          .querySelector('[data-title="pause"]')
+          .style.removeProperty("display");
+      });
+    document
+      .querySelector('[data-title="stop"]')
+      .addEventListener("touchstart", function (event) {
+        document.querySelector("#video").pause();
+        document.querySelector("#video").currentTime = 0;
+        document.querySelector('[data-title="pause"]').style.display = "none";
+      });
+  }
+</script>

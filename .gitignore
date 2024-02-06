@@ -1,0 +1,6 @@
+multimedia/view/images
+multimedia/view/audios
+multimedia/view/video
+multimedia/node_modules
+multimedia/release-builds
+multimedia/package-lock.json

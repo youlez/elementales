@@ -1,6 +1,7 @@
 multimedia/view/images
 multimedia/view/audios
 multimedia/view/video
+multimedia/view/fonts
 multimedia/node_modules
 multimedia/release-builds
 multimedia/package-lock.json

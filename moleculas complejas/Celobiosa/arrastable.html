@@ -100,9 +100,9 @@
     var incorrecto = false;
     array_encaje.forEach((encaje, i_encaje) => {
       let encaje_elemento = document.getElementById(encaje[0]);
-      encaje_elemento
-        .closest(".genially-view-group")
-        .querySelector(".sc-fmBCVi").style.overflow = "hidden";
+      encaje_elemento.closest(
+        ".genially-view-group"
+      ).childNodes[0].childNodes[0].style.overflow = "hidden";
       encaje_elemento
         .closest(".genially-view-group")
         .querySelector("img")
@@ -118,9 +118,9 @@
             .querySelector(".widget-audio-player-play-container")
             .click();
 
-          encaje_elemento
-            .closest(".genially-view-group")
-            .querySelector(".sc-fmBCVi").style.overflow = "visible";
+          encaje_elemento.closest(
+            ".genially-view-group"
+          ).childNodes[0].childNodes[0].style.overflow = "visible";
           encaje_elemento
             .closest(".genially-view-group")
             .querySelector("img").style.filter =

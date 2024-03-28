@@ -6,11 +6,29 @@
 <script></script>
 <div id="primer_encaje"></div>
 <script></script>
+<style>
+  @keyframes fade_in_left {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
 <script>
+  if (
+    document.getElementsByClassName("container-wrapper-genially").length != 0
+  ) {
+    var mensaje_error = document.getElementById("mensaje_error");
+    mensaje_error.closest(".genially-animated-wrapper").style.display = "none";
+  }
   var array_objetos = [
-    ["primer_objeto"],
-    ["segundo_objeto"],
-    ["tercer_objeto"],
+    ["primer_objeto", [0]],
+    ["segundo_objeto", [1]],
+    ["tercer_objeto", [2]],
   ];
   var array_encaje = [
     ["primer_encaje", []],
@@ -59,12 +77,63 @@
           }
         }
       });
-      if (!array_encaje.filter((encaje) => encaje[1].length == 0).length > 0) {
-        setTimeout(
-          () => document.querySelector('[data-title="siguiente"]').click(),
-          100
-        );
-      }
+      revisar(array_encaje, array_objetos);
     });
   });
+  function revisar(array_encaje, array_objetos) {
+    var mensaje_error = document.getElementById("mensaje_error");
+    mensaje_error.closest(".genially-animated-wrapper").style.display = "none";
+    mensaje_error
+      .closest(".genially-animated-wrapper")
+      .style.removeProperty("animation");
+
+    var incorrecto = false;
+    array_encaje.forEach((encaje, i_encaje) => {
+      let encaje_elemento = document.getElementById(encaje[0]);
+      encaje_elemento.closest(
+        ".genially-view-group"
+      ).childNodes[0].childNodes[0].style.overflow = "hidden";
+      encaje_elemento
+        .closest(".genially-view-group")
+        .querySelector("img")
+        .style.removeProperty("filter");
+      if (!array_encaje.filter((encaje) => encaje[1].length == 0).length > 0) {
+        if (
+          array_objetos[encaje[1]][1].filter((encaje_o) => encaje_o == i_encaje)
+            .length == 0
+        ) {
+          document
+            .getElementById("audio_mal")
+            .closest(".genially-view-group")
+            .querySelector(".widget-audio-player-play-container")
+            .click();
+
+          encaje_elemento.closest(
+            ".genially-view-group"
+          ).childNodes[0].childNodes[0].style.overflow = "visible";
+          encaje_elemento
+            .closest(".genially-view-group")
+            .querySelector("img").style.filter =
+            "drop-shadow(0 0 0.75rem #f77955)";
+
+          mensaje_error
+            .closest(".genially-animated-wrapper")
+            .style.removeProperty("display");
+          mensaje_error.closest(".genially-animated-wrapper").style.animation =
+            "fade_in_left 0.5s linear";
+
+          incorrecto = true;
+        }
+      }
+    });
+    if (
+      !incorrecto &&
+      !array_encaje.filter((encaje) => encaje[1].length == 0).length > 0
+    ) {
+      setTimeout(
+        () => document.querySelector('[data-title="siguiente"]').click(),
+        100
+      );
+    }
+  }
 </script>
